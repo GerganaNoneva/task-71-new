@@ -1,4 +1,3 @@
-//import React, { useState, useEffect } from 'react';
 
 function Document({ title, content }) {
   const handleScroll = (event) => {
@@ -20,22 +19,3 @@ function Document({ title, content }) {
 
 export default Document;
 
-/*
-    <div>
-      <div className="title">{title}</div>
-      <div className="content" style={{ overflow: 'auto', height: '200px' }} onScroll={handleScroll}>
-        {content}
-      </div>
-    </div>*/
-
-/*
-<section>
-      <h2 className="title"></h2>
-      <article
-
-        onScroll={(e) => handleScroll(e)}
-      >
-        {content}
-      </article>
-      <button disabled={disable}>I Agree</button>
-    </section>*/ 
