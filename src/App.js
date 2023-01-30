@@ -6,7 +6,7 @@ function App() {
   const [text, setText] = useState('');
 
   useEffect(() => {
-    fetch('https://jaspervdj.be/lorem-markdownum/markdown.txt')
+      fetch('https://jaspervdj.be/lorem-markdownum/markdown.txt')
       .then(res => res.text())
       .then(setText);
   }, []);
