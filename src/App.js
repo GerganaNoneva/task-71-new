@@ -17,5 +17,3 @@ useEffect(() => {
   );
 }
 export default App;
-
-//     <button disabled>I Agree</button>
