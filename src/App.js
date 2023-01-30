@@ -1,19 +1,35 @@
-import "./App.css";
+import React, { useState, useEffect } from 'react';
+
+function Document({ title, content }) {
+  const handleScroll = (event) => {
+    if (event.target.scrollTop + event.target.clientHeight >= event.target.scrollHeight) {
+      document.querySelector('button').removeAttribute('disabled');
+    }
+  };
+
+  return (
+    <div>
+      <div className="title">{title}</div>
+      <div className="content" style={{ overflow: 'auto', height: '200px' }} onScroll={handleScroll}>
+        {content}
+      </div>
+    </div>
+  );
+}
 
 function App() {
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    fetch('https://jaspervdj.be/lorem-markdownum/markdown.txt')
+      .then(res => res.text())
+      .then(setText);
+  }, []);
+
   return (
-    <div className="App">
-      <section class="hero">
-        <div class="hero-body">
-          <p class="title">A React Task</p>
-          <p class="subtitle">by Boom.dev</p>
-        </div>
-      </section>
-      <div class="container is-fullhd">
-        <div class="notification">
-          Edit the <code>./src</code> folder to add components.
-        </div>
-      </div>
+    <div>
+      <Document title="Terms and Conditions" content={text} />
+      <button disabled>I Agree</button>
     </div>
   );
 }
